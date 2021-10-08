@@ -1,6 +1,8 @@
 .board {
   width: 600px;
   height: 600px;
+  display: inline-block;
+  max-width: 600px;
 }
 
 .tile {
@@ -12,4 +14,15 @@
   font-size: 100px;
   vertical-align: middle;
   line-height: 150px;
+}
+
+table,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+thead {
+  background-color: #333;
+  color: #fff;
 }

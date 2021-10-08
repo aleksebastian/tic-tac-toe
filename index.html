@@ -9,10 +9,44 @@
   </head>
 
   <body>
-    <div class="header"></div>
-    <div class="board"></div>
-    <button class="reset">Reset!</button>
 
+    <div class='header'></div>
+    <div class='board'></div>
+    <button class='reset'>Reset!</button>
+  
+    <div class=tally>
+      <table>
+        <thead>
+          <tr>
+            <th colspan='2'>Game Tally</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class='xName'>X</td>
+            <td class='oName'>O</td>
+          </tr>
+          <tr>
+            <td class='xCount'>0</td>
+            <td class='oCount'>0</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class='nameEnablerBtn'>Pick your name!</button>
+      <div class =nameContainer>
+        <label for='playerX'>Player X</label>
+        <input class='choosenXName' type='text' name='playerX'></input>
+  
+        <label for='playerO'>Player O</label>
+        <input class='choosenOName' type='text' name='playerO'></input>
+        <input class='pickNameBtn' type='button' value='Set names!'></input>
+      </div>
+  
+    </div>
+  
+    <script src="./gamePresentation.js"></script>
+    <script src="./gameState.js"></script>
+    <script src="./userInput.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>

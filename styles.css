@@ -1,15 +1,15 @@
 .board {
-  width: 625px;
-  height: 625px;
+  width: 600px;
+  height: 600px;
 }
 
 .tile {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border: 2px solid #000;
   float: left;
   text-align: center;
   font-size: 100px;
   vertical-align: middle;
-  line-height: 200px;
+  line-height: 150px;
 }

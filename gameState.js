@@ -1,8 +1,19 @@
 // Game mechanics
 
-x = true;
+let x = true;
 
-play = (tile, i) => {
+const currentPlayer = document.querySelector(".current-player");
+
+const updateCurrentPlayer = () => {
+  if (x) {
+    currentPlayer.innerHTML = "O's turn";
+  } else {
+    currentPlayer.innerHTML = "X's turn";
+  }
+};
+
+const play = (tile, i) => {
+  updateCurrentPlayer();
   if (x) {
     if (tile.innerHTML === "o") {
       return;
@@ -27,7 +38,7 @@ play = (tile, i) => {
 };
 
 // JS board render - Rows
-jsRowRender = (linearBoard) => {
+const jsRowRender = (linearBoard) => {
   let copy = linearBoard.slice();
   let renderedRows = [];
   while (copy.length) {
@@ -37,11 +48,10 @@ jsRowRender = (linearBoard) => {
   return renderedRows;
 };
 
-// Do not hardcode if time permits
+// Refactor to be dynamic
 // JS board render - Columns
-jsColumnRender = (linearBoard) => {
+const jsColumnRender = (linearBoard) => {
   let renderedColumns = [];
-  let columnCount = 0;
   let column1 = [];
   let column2 = [];
   let column3 = [];
@@ -70,7 +80,7 @@ const xIsWinner = (currentTile) => currentTile === "x";
 const oIsWinner = (currentTile) => currentTile === "o";
 
 // Check for win or tie function
-checkGame = (rowBoard, columnBoard) => {
+const checkGame = (rowBoard, columnBoard) => {
   let xMajorDiagonalCount = 0;
   let xMinorDiagonalCount = 0;
   let oMajorDiagonalCount = 0;
@@ -80,11 +90,14 @@ checkGame = (rowBoard, columnBoard) => {
   for (var i = 0; i < rowBoard.length; i++) {
     let currentRow = rowBoard[i];
     let currentColumn = columnBoard[i];
+
     if (currentRow.every(xIsWinner) || currentColumn.every(xIsWinner)) {
       winOrTieResponse("X");
+      break;
     }
     if (currentRow.every(oIsWinner) || currentColumn.every(oIsWinner)) {
       winOrTieResponse("O");
+      break;
     }
     if (currentRow[i] === "x") {
       xMajorDiagonalCount++;
@@ -107,29 +120,32 @@ checkGame = (rowBoard, columnBoard) => {
     xMinorDiagonalCount === rowBoard.length
   ) {
     winOrTieResponse("X");
+    return;
   } else if (
     oMajorDiagonalCount === rowBoard.length ||
     oMinorDiagonalCount === rowBoard.length
   ) {
     winOrTieResponse("O");
+    return;
   } else if (tieCheck === rowBoard.length) {
     winOrTieResponse();
+    return;
   }
 };
 
 // Win or tie elements and functionality
-const winOrTieBanner = document.createElement("h1");
+const winOrTieBanner = document.querySelector(".game-result");
 const HTMLBoard = document.querySelector(".board");
 
-let winOrTieResponse = (winner) => {
+const winOrTieResponse = (winner) => {
   if (!winner) {
     winOrTieBanner.innerHTML = "Cat's Game!";
-    winOrTieBanner.style.float = "left";
-    HTMLBoard.appendChild(winOrTieBanner);
+    // winOrTieBanner.style.float = "left";
+    // HTMLBoard.appendChild(winOrTieBanner);
   } else {
     updateWinCount(winner);
     winOrTieBanner.innerHTML = `${winner} wins!`;
-    HTMLBoard.prepend(winOrTieBanner);
+    // HTMLBoard.prepend(winOrTieBanner);
     Object.values(tiles).forEach((tile) => {
       tile.onclick = null;
     });

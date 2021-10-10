@@ -1,5 +1,5 @@
 // Tile click event handler
-activateTiles = () => {
+const activateTiles = () => {
   Object.values(tiles).forEach((tile, i) => {
     tile.onclick = () => {
       play(tile, i);
@@ -17,6 +17,7 @@ resetButton.onclick = () => {
   emptyBoard = Array(boardSize);
   linearBoard = emptyBoard.fill("null");
   activateTiles();
+  updateCurrentPlayer();
   // x = true;
   // Allow for winner to make the first move on next round
   x = !x;

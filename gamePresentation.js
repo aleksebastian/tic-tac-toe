@@ -7,18 +7,32 @@ const text = document.createTextNode("Tic Tac Toe");
 title.appendChild(text);
 header.appendChild(title);
 
-const boardSize = 3 * 3;
-const boardRows = boardSize / 3;
+const rows = 3;
+const boardSize = rows * rows;
+const boardRows = boardSize / rows;
+
+const boardDimentions = 400; //px
+const tileDimentions = boardDimentions / boardRows;
+
+board.style.width = `${boardDimentions}px`;
+board.style.height = `${boardDimentions}px`;
+board.style.maxWidth = `${boardDimentions}px`;
+
 let tileCount = 1;
 let tiles = {};
 let emptyBoard = Array(boardSize);
 let linearBoard = emptyBoard.fill("null");
 
 // HTML Board render
-boardRender = () => {
+const boardRender = () => {
   for (var i = 0; i < boardSize; i++) {
     let tile = document.createElement("div");
     tile.classList.add("tile", "num" + tileCount.toString());
+
+    tile.style.width = `${tileDimentions - 5}px`;
+    tile.style.height = `${tileDimentions - 5}px`;
+    tile.style.lineHeight = `${tileDimentions - 5}px`;
+
     board.appendChild(tile);
 
     tiles[tileCount] = tile;
@@ -26,15 +40,13 @@ boardRender = () => {
   }
 };
 
-// Advanced content additional code
-
 // Winner count
 const winCount = {
   X: document.querySelector(".xCount"),
   O: document.querySelector(".oCount"),
 };
 
-let updateWinCount = (winner) => {
+const updateWinCount = (winner) => {
   let currentTally = Number(winCount[winner].innerHTML);
   winCount[winner].innerHTML = `${currentTally + 1}`;
 };
@@ -61,6 +73,7 @@ const names = {
 const addNames = () => {
   names.X.innerHTML = `X: ${xName.value}`;
   names.O.innerHTML = `O: ${oName.value}`;
+  nameFields.style.visibility = "hidden";
 };
 
 pickNameBtn.onclick = () => {

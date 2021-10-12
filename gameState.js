@@ -140,12 +140,9 @@ const HTMLBoard = document.querySelector(".board");
 const winOrTieResponse = (winner) => {
   if (!winner) {
     winOrTieBanner.innerHTML = "Cat's Game!";
-    // winOrTieBanner.style.float = "left";
-    // HTMLBoard.appendChild(winOrTieBanner);
   } else {
     updateWinCount(winner);
     winOrTieBanner.innerHTML = `${winner} wins!`;
-    // HTMLBoard.prepend(winOrTieBanner);
     Object.values(tiles).forEach((tile) => {
       tile.onclick = null;
     });

@@ -1,26 +1,113 @@
-.board {
+@media screen and (min-width: 900px) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3em;
+  }
+
+  .board,
+  .header,
+  .current-player,
+  .game-result,
+  .reset {
+    display: block;
+    place-self: center;
+    grid-column: 2;
+  }
+
+  .game-result {
+    height: 30px;
+    margin: 0 0 10px 0;
+  }
+
+  .tally {
+    grid-column: 3;
+    width: 100%;
+    align-items: start;
+    grid-row: 3;
+  }
+
+  .score-table,
+  .nameEnablerBtn {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-result {
+    height: 60px;
+    margin: 0 0 10px 0;
+  }
+
+  .board {
+    width: 100% !important;
+  }
+
+  .tile {
+    border: 1px solid #fff !important;
+    width: 32% !important;
+  }
+
+  .tally {
+    width: 50%;
+    padding-top: 1em;
+  }
+
+  .score-table,
+  .nameEnablerBtn {
+    width: 100%;
+  }
+}
+
+body {
+  background-color: black;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.i-block {
+  display: inline-block;
+}
+
+.block {
   display: block;
 }
 
-.game-result {
-  height: 40px;
-}
-
 .tile {
-  border: 2px solid #000;
+  border: 2px solid #fff;
   float: left;
   text-align: center;
-  font-size: 80px;
-  vertical-align: middle;
+  font-size: 60px;
 }
 
 table,
 td {
   border: 1px solid black;
   text-align: center;
+  color: #fff;
 }
 
 thead {
   background-color: #333;
   color: #fff;
+}
+
+.btn {
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #fff;
+  border-radius: 0.12em;
+  color: black;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  color: #000000;
+  background-color: grey;
+  border: 0.1em solid black;
 }

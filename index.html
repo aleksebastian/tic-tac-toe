@@ -3,8 +3,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tic Tac Toe</title>
-    <meta name="tic-tac-toe" content="tic-tac-toe" />
+    <meta name="tic tac toe" content="A vanilla JS version of tic tac toe" />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -13,11 +14,11 @@
     <div class='header'></div>
     <h1 class='game-result'></h1>
     <div class='board'></div>
-    <p class='current-player'></p>
-    <button class='reset'>Reset!</button>
+    <p class='current-player'>X's turn</p>
+    <button class='reset btn'>Reset</button>
   
     <div class=tally>
-      <table>
+      <table class='score-table'>
         <thead>
           <tr>
             <th colspan='2'>Game Tally</th>
@@ -34,14 +35,19 @@
           </tr>
         </tbody>
       </table>
-      <button class='nameEnablerBtn'>Pick your name!</button>
+      <button class='nameEnablerBtn btn'>Pick your name</button>
       <div class =nameContainer>
-        <label for='playerX'>Player X</label>
-        <input class='choosenXName' type='text' name='playerX'></input>
-  
-        <label for='playerO'>Player O</label>
-        <input class='choosenOName' type='text' name='playerO'></input>
-        <input class='pickNameBtn' type='button' value='Set names!'></input>
+        <div class='i-block'>
+          <label for='playerX'>Player X</label>
+          <input class='choosenXName' type='text' name='playerX'></input>
+        </div>
+        <div class='i-block'>
+          <label for='playerO'>Player O</label>
+          <input class='choosenOName' type='text' name='playerO'></input>
+        </div>
+        <div class='block'>
+          <input class='pickNameBtn btn' type='button' value='Set names'></input>
+        </div>
       </div>
   
     </div>

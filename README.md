@@ -9,4 +9,4 @@
 
 ## Setup
 
-- Forget NPM install, we are in vanilla JS land here. Clone the repo and open the index.html file in your browser of choice to view and/or play game.
+- Forget NPM install, we are in vanilla JS land here. Clone the repo and open the index.html file in your browser of choice to view and/or play the game.
